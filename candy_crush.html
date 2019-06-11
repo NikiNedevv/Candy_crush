@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fruits</title>
+  
+  <script type="text/javascript" src="jquery-3.1.1.js"></script>
+  </script>
+  
+  </head>
+  <body>
+    <script>
+    // A 10x10 grid implemented with JavaScript Array
+    var rows=10;
+    var cols = 10;
+    var grid = [];
+
+    function jewel(r,c,obj,src)
+    {
+      return {
+      r: r,  <!-- current row of the object -->
+      c: c,  <!-- current columns of the object -->
+      src:src, <!-- the image showed in cells (r,c) 
+      locked:false, <!-- This property indicate if the cell (r,c)
+      isInCombo:false, <!-- This property indicate if the cell (r,c) 
+      o:obj <!-- this is a pointer to a jQuery object -->
+     }
+    }
+
+    
+    var jewelsType=[];
+    jewelsType[0]="https://findicons.com/files/icons/298/ukrainian_motifs/128/apple.png";
+    jewelsType[1]="https://findicons.com/files/icons/343/fruits/128/strawberry.png";
+    jewelsType[2]="https://findicons.com/files/icons/343/fruits/128/grape.png"; 
+    jewelsType[3]="https://findicons.com/files/icons/343/fruits/128/banana.png";
+    jewelsType[4]="https://findicons.com/files/icons/343/fruits/128/watermelon.png";
+    jewelsType[5]="https://findicons.com/files/icons/343/fruits/128/pineapple.png";
+    jewelsType[6]="https://findicons.com/files/icons/343/fruits/128/orange.png";
+            
+    // this function returns a random jewel.
+    function pickRandomJewel()
+    {
+      var pickInt = Math.floor((Math.random()*7));
+      return jewelsType[pickInt];
+     }
+
+     for (var r = 0; r < rows; r++){
+
+      grid[r]=[];
+
+      for (var c =0; c< cols; c++) {
+
+         grid[r][c]=new jewel(r,c,null,pickRandomJewel());
+
+     }
+
+  }
+  </script>
+  </body>
+  </html>
