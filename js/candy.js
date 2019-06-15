@@ -20,7 +20,7 @@ var boardRows = board.length;
 var boardCols = board[0].length;
   
 
-var table = $()
+// var table = $()
 $tableelement = $("<table></table>");
 $("#board").append($tableelement);
 for (var i = 0; i < boardRows; i++) {
