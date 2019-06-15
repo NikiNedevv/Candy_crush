@@ -1,35 +1,55 @@
- //images/icons array
-    var jewelsType={R: "https://findicons.com/files/icons/298/ukrainian_motifs/128/apple.png",
-                   G:  "https://findicons.com/files/icons/298/ukrainian_motifs/128/apple.png",
-                   B: "https://findicons.com/files/icons/343/fruits/128/grape.png",
-                   P:  "https://findicons.com/files/icons/343/fruits/128/banana.png",
-                   O: "https://findicons.com/files/icons/343/fruits/128/watermelon.png",
-                   Y: "https://findicons.com/files/icons/343/fruits/128/pineapple.png"
-                    
-                  };
-//                   console.log(jewelsType);
-
-    var board = [['R','G','G','B'], 
+  var board = [['R','G','G','B'], 
                   ['B','O','G','G'], 
                   ['P','O','B','P'], 
                   ['Y','B','Y','O']];
 
+ $(function(){
+  drawBoard(board);
+ });
 
 
-var boardRows = board.length;
-var boardCols = board[0].length;
-  
+function drawBoard(board){
+  var tableelement,
+  rowelement,
+  first = null,
+  second = null,
+  clickCount = 0;
 
-// var table = $()
-$tableelement = $("<table></table>");
-$("#board").append($tableelement);
-for (var i = 0; i < boardRows; i++) {
-       $rowelement = $("<tr></tr>");
-       $tableelement.append($rowelement);
-  for (var j = 0; j < boardCols; j++) {
-    $rowelement.append$($("<td>" + board[i][j] + "</td>").css("background-image", "url(img/"+board[i][j]+".png)"));
+  var boardRows = board.length;
+  var boardCols = board[0].length;
+    
+  tableelement = $("<table></table>");
+  $("#board").append(tableelement);
+  for (var i = 0; i < boardRows; i++) {
+         rowelement = $("<tr></tr>");
+         tableelement.append(rowelement);
+    for (var j = 0; j < boardCols; j++) {
+      rowelement.append($("<td class='fruits'><img data-row='"+[i]+"' data-col='"+[j]+"' data-val='"+board[i][j]+"' src='img/"+board[i][j]+".png'>" + "'</td>"));
 
+    }
   }
+  $('.fruits').on('click', function(){
+    clickCount++;
+    if(clickCount < 2){
+      first = [$(this).find('img').attr('data-row'),$(this).find('img').attr('data-col'),$(this).find('img').attr('data-val')];
+    }
+    if(clickCount == 2){
+      second = [$(this).find('img').attr('data-row'),$(this).find('img').attr('data-col'),$(this).find('img').attr('data-val')];
+    }
+
+    if(first == null || second == null){
+      if($(this).hasClass('clicked')){
+        alert('click on another');
+      }else{
+        $(this).addClass('clicked');
+      }
+    }
+    change(first,second);
+  });
+}
+
+function change(first,second){
+  console.log(first[2]);
 }
 
 

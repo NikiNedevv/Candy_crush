@@ -3,59 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Fruits</title>
-  <script type="text/javascript" src="js/candy.js"></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<body>
   <div class="wrapper">
-  <div id="board"></div>
+    <div id="board"></div>
   </div>
-  </head>
-  <body>
-
-    <script>
-      
-    
-    
-
-   
-   var board = [['R','G','G','B'], 
-                  ['B','O','G','G'], 
-                  ['P','O','B','P'], 
-                  ['Y','B','Y','O']];
-//                   cell,
-
-
-var boardRows = board.length;
-var boardCols = board[0].length;
-  
-
-var table = $()
-$tableelement = $("<table></table>");
-$("#board").append($tableelement);
-for (var i = 0; i < boardRows; i++) {
-       $rowelement = $("<tr></tr>");
-       $tableelement.append($rowelement);
-  for (var j = 0; j < boardCols; j++) {
-    $rowelement.append($("<td>" + board[i][j] + "</td>").css("background-image", "url(img/"+board[i][j]+".png)"));
-
-  }
-}
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </script>
-  </body>
-  </html>
+  <script src="./js/candy.js"></script>
+</body>
+</html>
