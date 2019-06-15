@@ -1,10 +1,8 @@
-  var board = [['R','G','G','B'], 
-                  ['B','O','G','G'], 
-                  ['P','O','B','P'], 
-                  ['Y','B','Y','O']];
+  var board =  [["R","O","Y","O","O","R","O","R","R","G"]];
 
  $(function(){
   drawBoard(board);
+  console.log(board);
  });
 
 
@@ -19,6 +17,7 @@ function drawBoard(board){
   var boardCols = board[0].length;
     
   tableelement = $("<table></table>");
+  $("#board").html(' ');
   $("#board").append(tableelement);
   for (var i = 0; i < boardRows; i++) {
          rowelement = $("<tr></tr>");
@@ -44,14 +43,25 @@ function drawBoard(board){
         $(this).addClass('clicked');
       }
     }
-    change(first,second);
+
+    if(first && second){
+      change(first,second,board);
+    }
   });
 }
 
-function change(first,second){
-  console.log(first[2]);
-}
+function change(first,second,board){
+  board[first[0]][first[1]] = second[2];
+  board[second[0]][second[1]] = first[2];
 
+  drawBoard(board);
+
+  var boardRows = board.length;
+  var boardCols = board[0].length;
+  var isWinner = false;
+  var position;
+
+  
 
 
 
