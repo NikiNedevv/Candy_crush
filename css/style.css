@@ -7,8 +7,9 @@ html {
 	font-size: 62.5%;
 }
 body {
-	background-image: url(../img/strawberries.jpg);
-	color: #ffefd9;
+	
+	background-image: url(../img/strawberries.jpg); 
+	background-repeat: no-repeat;
 }
 .wrapper {
 	position: relative;
